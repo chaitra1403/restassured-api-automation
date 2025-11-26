@@ -1,0 +1,208 @@
+[
+  {
+    "username": "jdoe",
+    "email": "jdoe@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 201,
+    "scenario": "Test successful user registration with all valid fields"
+  },
+  {
+    "username": "newuser123",
+    "email": "newuser123@test.com",
+    "password": "SecurePass123!",
+    "expected_statusCode": 201,
+    "scenario": "Test user registration with only mandatory fields (username, email, password)"
+  },
+  {
+    "username": "alice_smith",
+    "email": "alice.smith@company.org",
+    "password": "Str0ng#Pass",
+    "expected_statusCode": 201,
+    "scenario": "Test registration with alphanumeric username containing underscore"
+  },
+  {
+    "username": "user2024",
+    "email": "user2024@domain.io",
+    "password": "MyP@ss2024!",
+    "expected_statusCode": 201,
+    "scenario": "Test registration with numeric suffix in username"
+  },
+  {
+    "email": "nouser@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when username is missing"
+  },
+  {
+    "username": "testuser",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when email is missing"
+  },
+  {
+    "username": "testuser",
+    "email": "testuser@example.com",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when password is missing"
+  },
+  {
+    "username": "testuser",
+    "email": "invalid-email",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails with malformed email address (no @ symbol)"
+  },
+  {
+    "username": "testuser",
+    "email": "user@",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails with incomplete email (missing domain)"
+  },
+  {
+    "username": "testuser",
+    "email": "@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails with email missing local part"
+  },
+  {
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails with empty request body"
+  },
+  {
+    "username": null,
+    "email": "test@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when username is null"
+  },
+  {
+    "username": "testuser",
+    "email": null,
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when email is null"
+  },
+  {
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": null,
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when password is null"
+  },
+  {
+    "username": "",
+    "email": "test@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when username is empty string"
+  },
+  {
+    "username": "testuser",
+    "email": "",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when email is empty string"
+  },
+  {
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": "",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when password is empty string"
+  },
+  {
+    "username": 12345,
+    "email": "test@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration with numeric value for username instead of string"
+  },
+  {
+    "username": ["user1", "user2"],
+    "email": "test@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when username is an array"
+  },
+  {
+    "username": "testuser",
+    "email": {"value": "test@test.com"},
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when email is an object"
+  },
+  {
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": true,
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when password is boolean"
+  },
+  {
+    "username": "   ",
+    "email": "test@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails when username contains only whitespace"
+  },
+  {
+    "username": "testuser",
+    "email": "  test@example.com  ",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration handles email with leading/trailing spaces"
+  },
+  {
+    "username": "admin'; DROP TABLE users;--",
+    "email": "test@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration handles SQL injection attempt in username"
+  },
+  {
+    "username": "<script>alert(1)</script>",
+    "email": "test@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration handles XSS attempt in username"
+  },
+  {
+    "username": "validuser",
+    "email": "valid@example.com",
+    "password": "P@ssw0rd!",
+    "role": "admin",
+    "isVerified": true,
+    "expected_statusCode": 201,
+    "scenario": "Test registration with additional unknown fields in body - should ignore extra fields"
+  },
+  {
+    "username": "müller",
+    "email": "muller@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 201,
+    "scenario": "Test registration with unicode characters in username"
+  },
+  {
+    "username": "user_with_very_long_name_that_exceeds_normal_limits_1234567890",
+    "email": "longuser@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration with very long username string"
+  },
+  {
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": "weak",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails with weak password (too short)"
+  },
+  {
+    "username": "testuser",
+    "email": "test..double@example.com",
+    "password": "P@ssw0rd!",
+    "expected_statusCode": 400,
+    "scenario": "Test registration fails with email containing consecutive dots"
+  }
+]
