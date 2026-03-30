@@ -1,0 +1,149 @@
+{
+  "item": [
+    {
+      "id": "d9fa2204-be05-4a92-8237-b12a888c6e7d",
+      "name": "Get all employees",
+      "request": {
+        "name": "Get all employees",
+        "description": {
+          "content": "Retrieve a list of all employees",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "employees"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "1c55a885-a457-41e0-b9dc-e43b8edd9fb8",
+          "name": "A list of employees",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"id\": 9599,\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"email\": \"string\",\n    \"jobs\": [\n      \"string\",\n      \"string\"\n    ],\n    \"skill\": {\n      \"programming\": \"string\",\n      \"automation\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  {\n    \"id\": 7668,\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"email\": \"string\",\n    \"jobs\": [\n      \"string\",\n      \"string\"\n    ],\n    \"skill\": {\n      \"programming\": \"string\",\n      \"automation\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "9f466b5a-b65e-4aa9-8cdd-91e3ffa0a2ec",
+          "name": "Bad Request",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "48c95f20-f815-4e87-ae25-3d5bef52652d",
+          "name": "Internal Server Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "51d08b20-55c5-43ec-a58a-fa1d0d65ef8d",
+    "name": "Employee API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing employee data",
+      "type": "text/plain"
+    }
+  }
+}

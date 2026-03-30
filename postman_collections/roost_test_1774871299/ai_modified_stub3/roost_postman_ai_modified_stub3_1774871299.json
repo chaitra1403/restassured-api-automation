@@ -1,0 +1,189 @@
+{
+  "item": [
+    {
+      "id": "6120fa64-d6ed-4105-8584-05d4f3574297",
+      "name": "Get Student Score",
+      "request": {
+        "name": "Get Student Score",
+        "description": {
+          "content": "Retrieve the score of a student by their ID.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "student",
+            ":studentId",
+            "score"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "studentId",
+              "description": "(Required) The ID of the student"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/xml"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "5e3a2d14-79dc-430a-a6f6-5fbdbdb6460d",
+          "name": "Successful response with student score",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "student",
+                ":studentId",
+                "score"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "studentId",
+                  "description": "(Required) The ID of the student"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/xml"
+            }
+          ],
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+          "cookie": [],
+          "_postman_previewlanguage": "xml"
+        },
+        {
+          "id": "04b32dda-10dd-4d0f-8390-2f57ce8b4031",
+          "name": "Bad Request",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "student",
+                ":studentId",
+                "score"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "studentId",
+                  "description": "(Required) The ID of the student"
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "194ee67a-a143-4416-93b0-8ddc1e271442",
+          "name": "Internal Server Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "student",
+                ":studentId",
+                "score"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "studentId",
+                  "description": "(Required) The ID of the student"
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5e257259-31a9-4290-a6cd-cc2eaea93ce9",
+    "name": "Student Score API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API to retrieve student scores.",
+      "type": "text/plain"
+    }
+  }
+}
